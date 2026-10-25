@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>TP 0 - Chat</title>
+</h:head>
+<h:body>
+    <h:form>
+        <h3>Chat</h3>
+        <p:messages/>
+
+        <p:selectOneMenu value="#{bb.roleSysteme}" disabled="#{bb.roleSystemeChoisi}">
+            <f:selectItem itemLabel="Choisir un rôle" itemValue="" noSelectionOption="true"/>
+            <f:selectItems value="#{bb.roles}"/>
+        </p:selectOneMenu>
+        <br/><br/>
+
+        Question :<br/>
+        <h:inputTextarea value="#{bb.question}" rows="4" cols="50"/><br/>
+        <h:commandButton value="Envoyer" action="#{bb.envoyer}"/>
+        <h:commandButton value="Nouveau chat" action="#{bb.nouveauChat}" immediate="true"/>
+        <br/><br/>
+
+        Réponse :<br/>
+        <h:inputTextarea value="#{bb.reponse}" rows="4" cols="50" readonly="true"/><br/><br/>
+
+        Conversation :<br/>
+        <h:inputTextarea value="#{bb.conversation}" rows="10" cols="50" readonly="true"/>
+    </h:form>
+</h:body>
+</html>
